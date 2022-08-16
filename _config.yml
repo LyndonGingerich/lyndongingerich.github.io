@@ -26,6 +26,8 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://lyndongingerich.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  LyndonGingerich
 
+markdown: GFM
+
 # Build settings
 theme: jekyll-theme-midnight
 plugins:

@@ -29,7 +29,7 @@ github_username:  LyndonGingerich
 markdown: GFM
 
 # Build settings
-theme: jekyll-theme-midnight
+theme: minima
 plugins:
   - jekyll-feed
 

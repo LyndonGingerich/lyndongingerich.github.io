@@ -15,7 +15,10 @@ main_name="main"
 main_head=$(git log -n 1 --pretty=format:"%H" $main_name)
 
 for branch in $(git branch --merged "$main_head" | tr -d '*')
-do git branch -d "$branch"
+do
+    if [[ $branch != "$main_name" ]]
+    then git branch -d "$branch"
+    fi
 done
 ```
 

@@ -14,12 +14,18 @@ main_name="main"
 
 main_head=$(git log -n 1 --pretty=format:"%H" $main_name)
 
+current_branch=$(git branch --show-current)
+
+git checkout $main_name
+
 for branch in $(git branch --merged "$main_head" | tr -d '*')
 do
     if [[ $branch != "$main_name" ]]
     then git branch -d "$branch"
     fi
 done
+
+git checkout "$current_branch"
 ```
 
 Just substitute your own main branch name for the value of `main_name`.

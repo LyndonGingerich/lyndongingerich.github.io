@@ -25,7 +25,10 @@ do
     fi
 done
 
-git checkout "$current_branch"
+if [[ $current_branch != "" ]] # `git branch --show-current` prints nothing in detached HEAD state
+    then 
+        git checkout "$current_branch"
+fi
 ```
 
 Just substitute your own main branch name for the value of `main_name`.

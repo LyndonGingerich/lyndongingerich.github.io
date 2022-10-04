@@ -16,6 +16,8 @@ main_head=$(git log -n 1 --pretty=format:"%H" $main_name)
 
 current_branch=$(git branch --show-current)
 
+current_commit=$(git rev-parse HEAD)
+
 git checkout $main_name
 
 for branch in $(git branch --merged "$main_head" | tr -d '*')
@@ -25,9 +27,11 @@ do
     fi
 done
 
-if [[ $current_branch != "" ]] # `git branch --show-current` prints nothing in detached HEAD state
-    then 
-        git checkout "$current_branch"
+if [[ $current_branch == "" ]]
+then
+    git checkout "$current_commit"
+else
+    git checkout "$current_branch"
 fi
 ```
 

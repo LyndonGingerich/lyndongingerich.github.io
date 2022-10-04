@@ -23,7 +23,8 @@ git checkout $main_name
 for branch in $(git branch --merged "$main_head" | tr -d '*')
 do
     if [[ $branch != "$main_name" ]]
-    then git branch -d "$branch"
+    then
+        git branch -d "$branch"
     fi
 done
 

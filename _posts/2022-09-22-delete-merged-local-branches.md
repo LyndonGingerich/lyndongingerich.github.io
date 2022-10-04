@@ -14,9 +14,9 @@ main_name="main"
 
 main_head=$(git log -n 1 --pretty=format:"%H" $main_name)
 
-current_branch=$(git branch --show-current)
+original_branch=$(git branch --show-current)
 
-current_commit=$(git rev-parse HEAD)
+original_commit=$(git rev-parse HEAD)
 
 git checkout $main_name
 
@@ -28,11 +28,11 @@ do
     fi
 done
 
-if [[ $current_branch == "" ]]
+if [[ $original_branch == "" ]]
 then
-    git checkout "$current_commit"
+    git checkout "$original_commit"
 else
-    git checkout "$current_branch"
+    git checkout "$original_branch"
 fi
 ```
 

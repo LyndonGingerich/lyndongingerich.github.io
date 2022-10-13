@@ -32,7 +32,10 @@ if [[ $original_branch == "" ]]
 then
     git checkout "$original_commit"
 else
-    git checkout "$original_branch"
+    if git rev-parse --verify --quiet "$original_branch"
+    then
+        git checkout "$original_branch"
+    fi
 fi
 ```
 
